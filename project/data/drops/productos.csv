@@ -1,0 +1,130 @@
+fecha_entrada,nombre_producto,id_producto,unidades,precio_unitario,categoria
+2025-01-03,Lavadora Samsung 9kg,P001,132,1450,electrodomestico
+2025-01-05,Refrigerador LG 300L,P002,118,2100,electrodomestico
+2025-01-06,Microondas Panasonic 25L,P003,140,420,electrodomestico
+2025-01-07,Cafetera Oster 1.5L,P004,125,310,electrodomestico
+2025-01-08,Televisor Sony 55",P005,115,3500,electronica
+2025-01-10,Parlante Bluetooth JBL,P006,150,180,electronica
+2025-01-12,Teclado Mecanico Logitech,P007,160,95,computacion
+2025-01-13,Mouse Inalambrico HP,P008,175,60,computacion
+2025-01-14,Laptop Lenovo IdeaPad 15",P009,120,2800,computacion
+2025-01-15,Monitor Samsung 24",P010,122,650,computacion
+2025-01-17,Silla Ergonomica Ejecutiva,P011,135,520,muebles
+2025-01-18,Escritorio de Madera 1.2m,P012,128,480,muebles
+2025-01-19,Lampara LED de Escritorio,P013,140,85,iluminacion
+2025-01-20,Extension Electrica 3m,P014,170,45,electrico
+2025-01-21,Aspiradora Philips 1600W,P015,118,890,electrodomestico
+2025-01-22,Plancha a Vapor T-Fal,P016,130,250,electrodomestico
+2025-01-23,Reloj Inteligente Xiaomi,P017,150,420,electronica
+2025-01-25,Camara de Seguridad WiFi,P018,140,370,seguridad
+2025-01-26,Router TP-Link AC1200,P019,125,310,redes
+2025-01-27,Impresora Epson EcoTank,P020,115,1250,oficina
+2025-02-25,Producto Genérico 21,P021,104,2615,redes
+2025-02-01,Producto Genérico 22,P022,233,3532,electrodomestico
+2025-02-13,Artículo 23,P023,139,1178,oficina
+2025-02-07,Equipo 24,P024,173,609,oficina
+2025-02-05,Herramienta 25,P025,235,2971,iluminacion
+2025-02-06,Accesorio 26,P026,101,1013,redes
+2025-02-20,Componente 27,P027,168,1275,electronica
+2025-02-03,Elemento 28,P028,104,941,oficina
+2025-02-19,Gadget 29,P029,113,1051,computacion
+2025-02-09,Elemento 30,P030,119,3869,electrico
+2025-02-28,Equipo 31,P031,164,1400,seguridad
+2025-02-07,Sistema 32,P032,144,2619,iluminacion
+2025-02-13,Accesorio 33,P033,94,2497,electronica
+2025-02-14,Elemento 34,P034,150,2086,electrico
+2025-02-01,Producto Genérico 35,P035,197,2372,oficina
+2025-02-03,Producto Genérico 36,P036,220,2773,electrodomestico
+2025-02-06,Producto Genérico 37,P037,125,750,electrodomestico
+2025-02-25,Gadget 38,P038,213,1250,computacion
+2025-02-19,Herramienta 39,P039,180,1553,iluminacion
+2025-02-07,Herramienta 40,P040,130,3663,iluminacion
+2025-02-03,Gadget 41,P041,235,3494,muebles
+2025-02-03,Accesorio 42,P042,189,898,seguridad
+2025-02-23,Componente 43,P043,149,544,electrodomestico
+2025-02-02,Artículo 44,P044,217,1948,muebles
+2025-02-22,Equipo 45,P045,243,1672,oficina
+2025-02-18,Producto Genérico 46,P046,199,211,electrico
+2025-02-23,Componente 47,P047,124,3606,oficina
+2025-02-09,Sistema 48,P048,159,3407,computacion
+2025-02-05,Equipo 49,P049,88,615,oficina
+2025-02-24,Equipo 50,P050,243,2710,computacion
+2025-02-11,Accesorio 51,P051,144,3062,redes
+2025-02-16,Producto Genérico 52,P052,96,2833,redes
+2025-02-12,Herramienta 53,P053,238,660,seguridad
+2025-02-04,Herramienta 54,P054,84,3419,seguridad
+2025-02-26,Herramienta 55,P055,153,708,seguridad
+2025-02-06,Dispositivo 56,P056,152,2438,computacion
+2025-02-12,Elemento 57,P057,177,1263,electrodomestico
+2025-02-13,Herramienta 58,P058,113,2545,electrico
+2025-02-12,Equipo 59,P059,153,1572,electrico
+2025-02-18,Herramienta 60,P060,250,2513,electronica
+2025-02-07,Producto Genérico 61,P061,111,81,redes
+2025-02-06,Gadget 62,P062,234,3500,computacion
+2025-02-26,Producto Genérico 63,P063,102,3660,iluminacion
+2025-02-17,Producto Genérico 64,P064,249,3227,oficina
+2025-02-07,Gadget 65,P065,102,721,electronica
+2025-02-10,Producto Genérico 66,P066,244,2908,electronica
+2025-02-05,Elemento 67,P067,235,3714,electrodomestico
+2025-02-26,Elemento 68,P068,90,1178,oficina
+2025-02-02,Dispositivo 69,P069,173,2072,redes
+2025-02-17,Artículo 70,P070,83,2065,redes
+2025-02-27,Gadget 71,P071,139,2200,iluminacion
+2025-02-24,Gadget 72,P072,211,1714,computacion
+2025-02-20,Producto Genérico 73,P073,164,3274,electrodomestico
+2025-02-06,Elemento 74,P074,170,1132,electrodomestico
+2025-02-26,Producto Genérico 75,P075,221,3202,seguridad
+2025-02-11,Producto Genérico 76,P076,167,2905,seguridad
+2025-02-11,Gadget 77,P077,201,882,iluminacion
+2025-02-23,Gadget 78,P078,236,3597,electrico
+2025-02-17,Elemento 79,P079,145,3638,muebles
+2025-02-25,Producto Genérico 80,P080,226,2818,muebles
+2025-02-25,Dispositivo 81,P081,222,226,seguridad
+2025-02-25,Gadget 82,P082,92,2622,oficina
+2025-02-09,Accesorio 83,P083,185,2119,electrico
+2025-02-10,Gadget 84,P084,125,52,oficina
+2025-02-10,Equipo 85,P085,210,57,computacion
+2025-02-21,Componente 86,P086,154,998,computacion
+2025-02-04,Elemento 87,P087,92,3818,seguridad
+2025-02-14,Dispositivo 88,P088,152,1054,oficina
+2025-02-26,Elemento 89,P089,143,2035,electrodomestico
+2025-02-25,Componente 90,P090,149,2272,electrodomestico
+2025-02-06,Producto Genérico 91,P091,192,1240,redes
+2025-02-09,Dispositivo 92,P092,123,3343,seguridad
+2025-02-22,Producto Genérico 93,P093,177,2509,electrico
+2025-02-14,Sistema 94,P094,110,798,electronica
+2025-02-16,Sistema 95,P095,178,2260,iluminacion
+2025-02-07,Elemento 96,P096,107,829,oficina
+2025-02-28,Sistema 97,P097,175,2540,iluminacion
+2025-02-26,Accesorio 98,P098,182,3084,redes
+2025-02-26,Dispositivo 99,P099,250,849,oficina
+2025-02-01,Elemento 100,P100,233,1656,electronica
+2025-02-23,Equipo 101,P101,152,1737,oficina
+2025-02-19,Sistema 102,P102,226,3518,iluminacion
+2025-02-16,Gadget 103,P103,207,53,seguridad
+2025-02-05,Sistema 104,P104,98,2198,redes
+2025-02-15,Artículo 105,P105,110,100,computacion
+2025-02-12,Dispositivo 106,P106,171,2505,oficina
+2025-02-19,Herramienta 107,P107,246,1082,oficina
+2025-02-09,Componente 108,P108,248,3252,electrodomestico
+2025-02-09,Accesorio 109,P109,99,2535,electrodomestico
+2025-02-04,Equipo 110,P110,106,2101,electrico
+2025-02-12,Producto Genérico 111,P111,118,3096,redes
+2025-02-17,Componente 112,P112,81,1973,computacion
+2025-02-03,Equipo 113,P113,207,3947,electronica
+2025-02-25,Sistema 114,P114,117,327,electronica
+2025-02-12,Artículo 115,P115,169,1225,muebles
+2025-02-21,Herramienta 116,P116,121,74,seguridad
+2025-02-15,Gadget 117,P117,139,2709,redes
+2025-02-28,Accesorio 118,P118,221,2312,electronica
+2025-02-05,Componente 119,P119,147,3798,computacion
+2025-13-03,Lavadora Samsung 9kg,P007,100.5,1450,electrodomestico
+2025/01/04,Refrigerador LG 300L,P008,118,2100,electrodomesticos
+2025-02-30,Microondas Panasonic 25L,P009,-5,420,electrodomestico
+,Cafetera Oster 1.5L,P010,125,310,electrodomestico
+2025-01-07,,P011,130,310,electrodomestico
+2025-01-08,Televisor Sony 55",p012,115,3500,electronica
+2025-01-09,Parlante Bluetooth JBL,P013,150,-180,electronica
+2025-01-10,Aspiradora Xiaomi 2L,P-014,110,990,electrodomestico
+2025-01-11,Smartwatch Apple Series 9,P015,1,399,99,electronica
+2025-01-12,TV Samsung 85",P016,,3500,electronica

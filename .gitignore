@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Node / Quartz
+site/node_modules/
+site/public/
+
+# Datos / Salidas
+project/data/*.csv
+project/data/*.json
+project/output/parquet/
+project/output/quality/
+project/output/*.html
+project/*.db
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+project/__pycache__/
+project/*.pyc
+project/.venv/
+project/.ipynb_checkpoints/
+
+# Node / Quartz
+site/node_modules/
+site/public/
+
+# Datos / Salidas
+project/data/*.csv
+project/data/*.json
+project/output/parquet/
+project/output/quality/
+project/output/*.html
+project/*.db
+
+# OS
+.DS_Store

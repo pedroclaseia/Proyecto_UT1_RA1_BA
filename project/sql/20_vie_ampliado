@@ -1,0 +1,101 @@
+-- Ventas diarias (se mantiene por compatibilidad)
+CREATE VIEW IF NOT EXISTS ventas_diarias AS
+SELECT
+  fecha AS fecha,
+  SUM(unidades * precio_unitario) AS importe_total,
+  COUNT(*) AS lineas
+FROM clean_ventas
+GROUP BY fecha;
+
+-- Producto más vendido (por unidades totales)
+CREATE VIEW IF NOT EXISTS vw_producto_mas_vendido AS
+WITH ventas_por_producto AS (
+  SELECT
+    v.id_producto,
+    SUM(v.unidades) AS unidades_vendidas
+  FROM clean_ventas v
+  GROUP BY v.id_producto
+),
+ranked AS (
+  SELECT
+    p.id_producto,
+    cp.nombre_producto,
+    vpp.unidades_vendidas,
+    ROW_NUMBER() OVER (ORDER BY vpp.unidades_vendidas DESC, p.id_producto) AS rn
+  FROM ventas_por_producto vpp
+  JOIN clean_productos cp ON cp.id_producto = vpp.id_producto
+  JOIN clean_productos p  ON p.id_producto  = vpp.id_producto
+)
+SELECT id_producto, nombre_producto, unidades_vendidas
+FROM ranked
+WHERE rn = 1;
+
+-- Producto más caro (por precio_unitario en catálogo limpio)
+CREATE VIEW IF NOT EXISTS vw_producto_mas_caro AS
+WITH ranked AS (
+  SELECT
+    id_producto,
+    nombre_producto,
+    precio_unitario,
+    ROW_NUMBER() OVER (ORDER BY precio_unitario DESC, id_producto) AS rn
+  FROM clean_productos
+)
+SELECT id_producto, nombre_producto, precio_unitario
+FROM ranked
+WHERE rn = 1;
+
+/*
+Original sin modificar:
+-- Oro: ventas diarias por producto (importe, unidades, ticket medio)
+CREATE VIEW IF NOT EXISTS ventas_diarias_producto AS
+SELECT
+  fv.fecha,
+  fv.id_producto,
+  dp.nombre_producto,
+  dp.categoria,
+  SUM(fv.unidades) AS unidades,
+  SUM(fv.importe)  AS importe,
+  CASE WHEN SUM(fv.unidades) > 0 THEN SUM(fv.importe) / SUM(fv.unidades) ELSE NULL END AS ticket_medio
+FROM fact_ventas fv
+LEFT JOIN dim_productos dp ON dp.id_producto = fv.id_producto
+GROUP BY fv.fecha, fv.id_producto, dp.nombre_producto, dp.categoria;
+
+-- Reporte por categoría y día
+CREATE VIEW IF NOT EXISTS ventas_diarias_categoria AS
+SELECT
+  vdp.fecha,
+  vdp.categoria,
+  SUM(vdp.unidades) AS unidades,
+  SUM(vdp.importe)  AS importe,
+  CASE WHEN SUM(vdp.unidades) > 0 THEN SUM(vdp.importe) / SUM(vdp.unidades) ELSE NULL END AS ticket_medio
+FROM ventas_diarias_producto vdp
+GROUP BY vdp.fecha, vdp.categoria;
+
+-- Producto más vendido (por unidades)
+CREATE VIEW IF NOT EXISTS vw_producto_mas_vendido AS
+WITH tot AS (
+  SELECT id_producto, SUM(unidades) AS unidades
+  FROM fact_ventas
+  GROUP BY id_producto
+),
+ranked AS (
+  SELECT t.id_producto, dp.nombre_producto, t.unidades,
+        ROW_NUMBER() OVER (ORDER BY t.unidades DESC, t.id_producto) AS rn
+  FROM tot t
+  JOIN dim_productos dp ON dp.id_producto = t.id_producto
+)
+SELECT id_producto, nombre_producto, unidades
+FROM ranked
+WHERE rn = 1;
+
+-- Producto más caro (precio de catálogo)
+CREATE VIEW IF NOT EXISTS vw_producto_mas_caro AS
+WITH ranked AS (
+  SELECT id_producto, nombre_producto, precio_unitario,
+        ROW_NUMBER() OVER (ORDER BY precio_unitario DESC, id_producto) AS rn
+  FROM dim_productos
+)
+SELECT id_producto, nombre_producto, precio_unitario
+FROM ranked
+WHERE rn = 1;
+
