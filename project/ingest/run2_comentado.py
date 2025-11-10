@@ -174,7 +174,7 @@ def ingest_one(f: Path, con: sqlite3.Connection, kind: str) -> pd.DataFrame:
     df["_batch_id"] = batch_id
     
     return df
-
+# --- Ingesta Masiva de Archivos CSV --- bronce ingesta directa de los datos
 def ingest_all_csvs_to_raw(con: sqlite3.Connection) -> dict:
     """
     Procesa todos los archivos CSV en el directorio DATA, los ingesta en DataFrames RAW
@@ -246,7 +246,7 @@ def ingest_all_csvs_to_raw(con: sqlite3.Connection) -> dict:
                 
     return counters
 
-# --- Carga de Sentencias SQL de UPSERT ---
+# --- Carga de Sentencias SQL de UPSERT plata ---
 
 def load_upsert_sqls(path: Path) -> dict[str, str]:
     """
@@ -335,7 +335,7 @@ def serialize_row_csv_like(row: pd.Series, cols: list[str]) -> str:
 
 # --- Limpieza y Persistencia del Dominio ---
 
-# Limpieza: Ventas
+# Limpieza: Ventas plata limpieza, validación y deduplicación
 def clean_and_persist_ventas_from_raw(con: sqlite3.Connection, upsert_sql: str) -> tuple[int, int, int]:
     """
     Carga datos RAW de ventas, realiza limpieza/validación,
@@ -583,7 +583,7 @@ if __name__ == "__main__":
         print("Clientes (raw, clean, quar):", rc)
         print("Productos (raw, clean, quar):", rp)
 
-        # 5) Vistas: Crea las vistas para el consumo de datos (ej: producto más vendido)
+        # 5) Vistas: Crea las vistas para el consumo de datos (ej: producto más vendido) oro
         con.executescript((ROOT / "sql" / "20_views.sql").read_text(encoding="utf-8"))
         con.commit()
         print("Vistas finales:", con.execute("SELECT name FROM sqlite_master WHERE type='view' ORDER BY name;").fetchall())
