@@ -89,9 +89,9 @@ El workflow `.github/workflows/deploy-pages.yml` compila el sitio (`npx quartz b
 | **`clean_ventas`** | (`fecha`, `id_cliente`, `id_producto`) | UPSERT last-wins por `_ingest_ts` |
 | **`clean_productos`** | `id_producto` | UPSERT last-wins |
 | **`clean_clientes`** | `id_cliente` | UPSERT last-wins |
-| **`dim_productos`** | `id_producto` | | (Parquet + tabla SQLite) |
-| **`dim_clientes`** | `id_cliente` | | (Parquet + tabla SQLite) |
-| **`fact_ventas`** | Compuesta | Actualización por conflicto (last-wins) | PK compuesta. Campos: `fecha`, `id_producto`, `id_cliente`, `unidades`, `precio_unitario`, `importe`. |
+| **`clean_productos`** | `id_producto` | | (Parquet + tabla SQLite) |
+| **`clean_clientes`** | `id_cliente` | | (Parquet + tabla SQLite) |
+| **`clean_ventas`** | Compuesta | Actualización por conflicto (last-wins) | PK compuesta. Campos: `fecha`, `id_producto`, `id_cliente`, `unidades`, `precio_unitario`, `importe`. |
 
 ---
 
@@ -99,9 +99,9 @@ El workflow `.github/workflows/deploy-pages.yml` compila el sitio (`npx quartz b
 
 * **`ventas_diarias_producto`**: `fecha`, `id_producto`, `nombre`, `categoría`, `unidades`, `importe`, `ticket_medio`. Se usa para **KPI diarios por producto**.
 * **`ventas_diarias_categoria`**: Agregación por categoría y día con `ticket_medio` (`importe/unidades`, `NULL` si `unidades=0`).
-* **`vw_producto_mas_vendido`**: Top 1 por **unidades acumuladas** a partir de `fact_ventas`, enriquecido con `nombre` desde dimensión.
-* **`vw_producto_mas_caro`**: Top 1 por **`precio_unitario`** desde catálogo limpio (`dim_productos`).
-* **`ventas_diarias_cliente`, `vw_cliente_top_importe`, `vw_cliente_top_unidades`**: Agregados y *rankings* por cliente (importe y unidades) a partir de `fact_ventas` y `dim_clientes`.
+* **`vw_producto_mas_vendido`**: Top 1 por **unidades acumuladas** a partir de `clean_ventas`, enriquecido con `nombre` desde cleanensión.
+* **`vw_producto_mas_caro`**: Top 1 por **`precio_unitario`** desde catálogo limpio (`clean_productos`).
+* **`ventas_diarias_cliente`, `vw_cliente_top_importe`, `vw_cliente_top_unidades`**: Agregados y *rankings* por cliente (importe y unidades) a partir de `clean_ventas` y `clean_clientes`.
 
 ---
 
@@ -119,24 +119,24 @@ El workflow `.github/workflows/deploy-pages.yml` compila el sitio (`npx quartz b
 
 ### SQLite
 * Ruta: `project/output/ut1.db`
-* Contiene: Tablas `raw_*`, `clean_*`, `quarantine_*`, `dim_productos`, `dim_clientes`, `fact_ventas` y **vistas de reporte**.
+* Contiene: Tablas `raw_*`, `clean_*`, `quarantine_*`, `clean_productos`, `clean_clientes`, `clean_ventas` y **vistas de reporte**.
 
 ### Parquet
 * Ruta: `project/output/parquet/`
-* Archivos: `clean_ventas.parquet`, `clean_productos.parquet`, `clean_clientes.parquet`, `dim_productos.parquet`, `dim_clientes.parquet` y `fact_ventas.parquet`.
+* Archivos: `clean_ventas.parquet`, `clean_productos.parquet`, `clean_clientes.parquet`, `clean_productos.parquet`, `clean_clientes.parquet` y `clean_ventas.parquet`.
 * *(Requiere `pyarrow` o `fastparquet`)*.
 
 ---
 
 ## 📊 KPIs y Supuestos
 
-* **Importe**: Suma de $\text{unidades} \times \text{precio\_unitario}$; calculado en `fact_ventas` y re‑agregado en vistas.
+* **Importe**: Suma de $\text{unidades} \times \text{precio\_unitario}$; calculado en `clean_ventas` y re‑agregado en vistas.
 * **Ticket medio**: $\frac{\text{importe}}{\text{unidades}}$ en el nivel de agregación; en división por cero retorna **NULL**.
 
 > **Supuestos:**
 > * El precio en ventas es el **precio efectivo de línea**.
 > * El catálogo **no reescribe histórico**.
-> * Las validaciones FK garantizan integridad en `fact_ventas` con respecto a las dimensiones.
+> * Las validaciones FK garantizan integridad en `clean_ventas` con respecto a las cleanensiones.
 
 ---
 
@@ -153,7 +153,7 @@ El workflow `.github/workflows/deploy-pages.yml` compila el sitio (`npx quartz b
 | Problema | Solución |
 | :--- | :--- |
 | **No aparecen archivos Parquet** | Instala `pyarrow`: `pip install pyarrow`; vuelve a ejecutar el *pipeline*. |
-| **Pages no publica el sitio** | Confirma que la acción compila Quartz (`npx quartz build`) y que Pages está configurado a desplegar el *artifact* `public` del *workflow*. |
+| **Pages no publica el sitio** | Confirma que la acción compila Quartz (`npx quartz build`) y que Pages está configurado a desplegar el *articlean* `public` del *workflow*. |
 # BDA_Proyecto_UT1_RA1
 
 
