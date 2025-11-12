@@ -89,7 +89,7 @@ def append_quarantine(con: sqlite3.Connection, kind: str, reasons_rows: list[tup
     if not reasons_rows:
         return
         
-    # Crea un DataFrame temporal con las filas en cuarentena
+    # Crea un DataFrame temporal con las filas en cuarentena trazabilidad
     dfq = pd.DataFrame(reasons_rows, columns=["_reason", "_row", "_ingest_ts", "_source_file", "_batch_id"])
     table = f"quarantine_{kind}"
     
